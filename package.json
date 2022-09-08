@@ -2,6 +2,9 @@
   "name": "idega",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,14 +14,17 @@
   "dependencies": {
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/node": "18.7.14",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
+    "@types/styled-components": "^5.1.26",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
+    "prettier": "^2.7.1",
     "typescript": "4.8.2"
   }
 }
