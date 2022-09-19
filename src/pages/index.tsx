@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 
 import styled from 'styled-components';
+import { useModal } from '../hooks/useModal';
 
 const Heading = styled.h1`
   font-size: 48px;
@@ -8,7 +9,11 @@ const Heading = styled.h1`
 `;
 
 const Home: NextPage = () => {
-  return <Heading>Neymar</Heading>;
+  const openModal = useModal({
+    content: "hello"
+  })
+
+  return <Heading onClick={openModal}>Neymar</Heading>;
 };
 
 export default Home;
