@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import CloseButton from './compose'
+import CloseButton from './compose/CloseButton'
 import { Overlay, Content } from './styles'
 
 type ModalProps = {

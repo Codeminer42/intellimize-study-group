@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-type ModalProps = {
+type CloseButtonProps = {
   closeModal: () => void
 }
 
-const CloseButton = ({ closeModal }: ModalProps) => {
+const CloseButton = ({ closeModal }: CloseButtonProps) => {
   return (
     <Container onClick={closeModal}>&times;</Container>
   )
