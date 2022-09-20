@@ -8,12 +8,12 @@ import ModalProvider from '../contexts/ModalProvider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ModalProvider>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <ModalProvider>
         <GlobalStyles />
         <Component {...pageProps} />
-      </ThemeProvider>
-    </ModalProvider>
+      </ModalProvider>
+    </ThemeProvider>
   );
 }
 

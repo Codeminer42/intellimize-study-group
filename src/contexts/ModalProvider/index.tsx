@@ -8,42 +8,36 @@ import React, {
 } from "react";
 import { Modal } from "../../components";
 
-const DEFAULT_MODAL_PROPS = {
-  content: "",
-};
-
-const ModalContext = createContext<any>({} as any);
-
 type ModalProviderProps = {
   children: ReactNode
 }
 
-const ModalProvider = ({ children }: ModalProviderProps) => {
-  const [modalData, setModalData] = useState(DEFAULT_MODAL_PROPS);
-  const [isOpen, setIsOpen] = useState(false);
+type ModalData = {
+  content: ReactNode
+} | null
 
-  const openModal = () => setIsOpen(true)
-  const closeModal = () => setIsOpen(false)
+const ModalContext = createContext<any>({} as any);
+
+const ModalProvider = ({ children }: ModalProviderProps) => {
+  const [modalData, setModalData] = useState<ModalData>(null);
+
+  const closeModal = () => setModalData(null)
 
   const confirmModalProps = useMemo(
     () => ({
       ...modalData,
-      isOpen,
-      children: modalData.content,
+      isOpen: Boolean(modalData),
+      children: modalData?.content,
       onClose: () => {
         closeModal();
       },
     }),
-    [modalData, isOpen]
+    [modalData]
   );
 
   const value = useCallback(
-    (newModalData: {}) => {
-      setModalData({
-        ...DEFAULT_MODAL_PROPS,
-        ...newModalData
-      });
-      openModal();
+    (newModalData: ModalData) => {
+      setModalData(newModalData)
     },
     [setModalData]
   );
