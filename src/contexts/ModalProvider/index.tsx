@@ -1,27 +1,20 @@
-import React, {
-  createContext,
-  ReactNode,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from "react";
-import { Modal } from "../../components";
+import React, { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
+import { Modal } from '../../components';
 
 type ModalProviderProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 type ModalData = {
-  content: ReactNode
-} | null
+  content: ReactNode;
+} | null;
 
 const ModalContext = createContext<any>({} as any);
 
 const ModalProvider = ({ children }: ModalProviderProps) => {
   const [modalData, setModalData] = useState<ModalData>(null);
 
-  const closeModal = () => setModalData(null)
+  const closeModal = () => setModalData(null);
 
   const confirmModalProps = useMemo(
     () => ({
@@ -37,7 +30,7 @@ const ModalProvider = ({ children }: ModalProviderProps) => {
 
   const value = useCallback(
     (newModalData: ModalData) => {
-      setModalData(newModalData)
+      setModalData(newModalData);
     },
     [setModalData]
   );

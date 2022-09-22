@@ -1,17 +1,15 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 type CloseButtonProps = {
-  closeModal: () => void
-}
+  closeModal: () => void;
+};
 
 const CloseButton = ({ closeModal }: CloseButtonProps) => {
-  return (
-    <Container onClick={closeModal}>&times;</Container>
-  )
-}
+  return <Container onClick={closeModal}>&times;</Container>;
+};
 
-export const Container = styled.button`
+const Container = styled.button`
   position: absolute;
   top: 0;
   right: 0;
@@ -24,6 +22,6 @@ export const Container = styled.button`
   &:hover {
     background-color: grey;
   }
-`
+`;
 
-export default CloseButton
+export default CloseButton;

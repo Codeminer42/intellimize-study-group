@@ -10,8 +10,8 @@ const Heading = styled.h1`
 
 const Home: NextPage = () => {
   const openModal = useModal({
-    content: "hello"
-  })
+    content: 'hello',
+  });
 
   return <Heading onClick={openModal}>Neymar</Heading>;
 };
