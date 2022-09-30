@@ -1,14 +1,18 @@
 import type { NextPage } from 'next';
 
-import styled from 'styled-components';
-
-const Heading = styled.h1`
-  font-size: 48px;
-  font-family: ${({ theme }) => theme.fontFamily};
-`;
+import { Header, ActionsMenu, Tabs, WineList } from '../ui/components';
 
 const Home: NextPage = () => {
-  return <Heading>Neymar</Heading>;
+  return (
+    <>
+      <Header />
+      <ActionsMenu />
+      <section>
+        <Tabs />
+        <WineList />
+      </section>
+    </>
+  );
 };
 
 export default Home;
