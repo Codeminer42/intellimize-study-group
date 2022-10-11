@@ -19,8 +19,12 @@ const Container = styled.button`
   border-radius: 1rem;
   font-size: 20px;
 
-  &:hover {
-    background-color: grey;
+  transition: 0.2s ease-in-out;
+
+  :hover {
+    cursor: pointer;
+    background-color: #adadad;
+    color: white;
   }
 `;
 

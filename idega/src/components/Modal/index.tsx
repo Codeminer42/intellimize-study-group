@@ -35,19 +35,17 @@ const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: #1e1e1e;
-  opacity: 0.6;
+  background-color: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(5px);
 `;
 
 const Content = styled.div`
   position: relative;
-  min-height: 500px;
-  min-width: 45%;
   background-color: #f8f8f8;
   border-radius: 20px;
   padding: 50px;

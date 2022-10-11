@@ -6,7 +6,7 @@ const fakeArr = Array.from(Array(20).keys());
 
 const WineList = () => {
   return (
-    <Container bgColor="tranparent">
+    <Container bgColor='transparent'>
       {fakeArr.map((i) => (
         <WineCard key={i} />
       ))}

@@ -30,6 +30,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     line-height: 1;
+    font-family: ${({ theme }) => theme.fontFamily}, sans-serif ;
   }
 
   ol, ul {
