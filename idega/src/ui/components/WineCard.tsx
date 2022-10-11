@@ -1,11 +1,26 @@
 import Image from 'next/image';
 import styled from 'styled-components';
+import WineDetails from '../../components/WineDetails/WineDetails';
+import { useModal } from '../../hooks/useModal';
 
 const WineCard = () => {
+  const openModal = useModal({
+    content: (
+      <WineDetails
+        name={'2017 Saxum Gratias'}
+        locationInCellar={'Location in Cellar'}
+        winery={'Paso Robles, CA'}
+        sellingPrice={300}
+        buyingPrice={180}
+        quantity={5}
+      />
+    ),
+  });
+
   return (
-    <Container>
+    <Container onClick={openModal}>
       <ImageContainer>
-        <Image src="/assets/wine.png" alt="2017 Saxum Gratias" layout="fill" />
+        <Image src='/assets/wine.png' alt='2017 Saxum Gratias' layout='fill' />
       </ImageContainer>
       <DescriptionContainer>
         <Heading>
@@ -13,7 +28,7 @@ const WineCard = () => {
           <span>Saxum Gratias</span>
           <Vineyard>Paso Robles, CA</Vineyard>
         </Heading>
-        <span>R$ 999,00</span>
+        <span>R$ 300,00</span>
       </DescriptionContainer>
     </Container>
   );
@@ -29,6 +44,11 @@ const Container = styled.article`
   border-radius: 20px;
 
   padding: 10px 8px;
+
+  :hover {
+    cursor: pointer;
+    filter: brightness(0.9);
+  }
 `;
 
 const ImageContainer = styled.div`
