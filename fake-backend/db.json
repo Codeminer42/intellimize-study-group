@@ -2,126 +2,273 @@
   "wines": [
     {
       "id": 1,
-      "name": "2008 Gimenez Riili",
-      "type": "Tinto",
-      "price": 80.0,
-      "location": "Mendoza, AR",
-      "vineyardId": 2,
-      "wineryId": 4
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
     },
     {
       "id": 2,
-      "name": "2017 Saxum Gratias",
-      "type": "Tinto",
-      "price": 180.0,
-      "location": "Paso Robles, CA",
-      "vineyardId": 3,
-      "wineryId": 2
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
     },
     {
       "id": 3,
-      "name": "2007 Rulo Syrah",
-      "type": "Tinto",
-      "price": 80.0,
-      "location": "Columbia Valley",
-      "vineyardId": 2,
-      "wineryId": 1
-    },
-    {
-      "id": 5,
-      "name": "2012 Le Grand Noir",
-      "type": "Tinto",
-      "price": 80.0,
-      "location": "France",
-      "vineyardId": 4,
-      "wineryId": 3
-    },
-    {
-      "id": 6,
-      "name": "2017 Saxum Gratias",
-      "type": "Tinto",
-      "price": 180.0,
-      "location": "Paso Robles, CA",
-      "vineyardId": 2,
-      "wineryId": 1
-    },
-    {
-      "id": 7,
-      "name": "2007 Rulo Syrah",
-      "type": "Tinto",
-      "price": 80.0,
-      "location": "Columbia Valley",
-      "vineyardId": 1,
-      "wineryId": 3
-    },
-    {
-      "id": 8,
-      "name": "2012 Le Grand Noir",
-      "type": "Tinto",
-      "price": 80.0,
-      "location": "France",
-      "vineyardId": 2,
-      "wineryId": 1
-    },
-    {
-      "id": 9,
-      "name": "2017 Saxum Gratias",
-      "type": "Tinto",
-      "price": 180.0,
-      "location": "Paso Robles, CA",
-      "vineyardId": 2,
-      "wineryId": 4
-    },
-    {
-      "id": 10,
-      "name": "2007 Rulo Syrah",
-      "type": "Tinto",
-      "price": 80.0,
-      "location": "Columbia Valley",
-      "vineyardId": 3,
-      "wineryId": 2
-    },
-    {
-      "id": 11,
-      "name": "2012 Le Grand Noir",
-      "type": "Tinto",
-      "price": 80.0,
-      "location": "France",
-      "vineyardId": 2,
-      "wineryId": 1
-    }
-  ],
-  "winery": [
-    {
-      "id": 1,
-      "name": "Winery 1",
-      "details": "something here"
-    },
-    {
-      "id": 2,
-      "name": "Winery 2",
-      "details": "something here"
-    },
-    {
-      "id": 3,
-      "name": "Winery 3",
-      "details": "something here"
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
     },
     {
       "id": 4,
-      "name": "Winery 4",
-      "details": "something here"
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
     },
     {
       "id": 5,
-      "name": "Winery 5",
-      "details": "something here"
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Vinho",
+      "year": 2017,
+      "wineryOfOrigin": "Bertoletti",
+      "mainImage": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+      "sellingPrice": 300.0,
+      "quantity": 10,
+      "moreDetails": {
+        "id": "1",
+        "name": "Vinho",
+        "year": 2017,
+        "winery_of_origin": "Bertoletti",
+        "description": "bla bla bla",
+        "tags": ["fruity", "sweet", "citric"],
+        "alcohol_content": 14.3,
+        "main_image": "https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg",
+        "selling_price": 300.0,
+        "buying_price": 180.0,
+        "location_in_cellar": {
+          "section": "A",
+          "position": "3"
+        },
+        "quantity": 10,
+        "color": "rosé"
+      }
     }
-  ],
-  "vineyard": [
-    { "id": 1, "name": "Vineyard 1", "location": "Columbia Valley", "details": "something here" },
-    { "id": 2, "name": "Vineyard 2", "location": "Columbia Valley", "details": "something here" },
-    { "id": 3, "name": "Vineyard 3", "location": "Columbia Valley", "details": "something here" },
-    { "id": 4, "name": "Vineyard 4", "location": "Columbia Valley", "details": "something here" }
   ]
 }
