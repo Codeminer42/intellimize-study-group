@@ -17,7 +17,9 @@ const ActionButtons = () => {
     {
       text: 'Add Winery',
       variant: 'green',
-      action: () => {},
+      action: () => {
+        window.location.href = '/AddWinery';
+      },
     },
     {
       text: 'Add Vineyard',
