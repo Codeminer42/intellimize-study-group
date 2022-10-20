@@ -1,4 +1,4 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useCallback, useContext, useMemo, useState } from 'react';
+import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
 
 export type Wine = {
   id: number;
@@ -26,7 +26,7 @@ type Vineyard = {
 
 type WineData = {
   wines: Wine[] | undefined;
-  setWines: Dispatch<SetStateAction<Wine[] | undefined>>;
+  addWine: (newWine: Wine) => void;
 };
 
 export const WineContext = createContext<WineData | null>(null);
@@ -68,12 +68,22 @@ const fakeWineData: Wine[] = [
 ];
 
 export const WineDataProvider = ({ children }: { children: ReactNode }) => {
-  const [wines, setWines] = useState<Wine[] | undefined>(fakeWineData);
+  const [wines, setWines] = useState<Wine[] | []>(fakeWineData);
 
-  const value = {
-    wines,
-    setWines,
-  };
+  const addWine = useCallback(
+    (newWine: Wine) => {
+      setWines((oldWinesList) => [...oldWinesList, newWine]);
+    },
+    [setWines]
+  );
+
+  const value = useMemo(
+    () => ({
+      wines,
+      addWine,
+    }),
+    [wines, addWine]
+  );
 
   return <WineContext.Provider value={value}>{children}</WineContext.Provider>;
 };
