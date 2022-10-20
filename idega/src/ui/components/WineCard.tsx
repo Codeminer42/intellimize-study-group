@@ -5,24 +5,24 @@ type WineCardProps = {
   id: number;
   name: string;
   year: number;
-  price: number;
-  location: string;
-  imgUrl: string;
+  wineryOfOrigin: string;
+  mainImage: string;
+  sellingPrice: number;
 };
 
-const WineCard = ({ name, year, price, location, imgUrl }: WineCardProps) => {
+const WineCard = ({ mainImage, name, sellingPrice, wineryOfOrigin, year }: WineCardProps) => {
   return (
     <Container>
       <ImageContainer>
-      <Image src={imgUrl} alt={`${year} ${name}`} layout='fill' />
+        <Image src={mainImage} alt={`${year} ${name}`} layout='fill' />
       </ImageContainer>
       <DescriptionContainer>
         <Heading>
-        <span>{year}</span>
+          <span>{year}</span>
           <span>{name}</span>
-          <Vineyard>{location}</Vineyard>
+          <Vineyard>{wineryOfOrigin}</Vineyard>
         </Heading>
-        <span>{price}</span>
+        <span>{sellingPrice}</span>
       </DescriptionContainer>
     </Container>
   );

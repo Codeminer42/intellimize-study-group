@@ -3,25 +3,24 @@ import { createContext, ReactNode, useCallback, useContext, useMemo, useState } 
 export type Wine = {
   id: number;
   name: string;
-  type: string;
   year: number;
-  price: number;
-  location: string;
-  vineyardId: number;
-  wineryId: number;
-  imgUrl: string;
+  wineryOfOrigin: string;
+  mainImage: string;
+  sellingPrice: number;
+  quantity: number;
+  moreDetails: WineMoreDetails;
 };
 
-type Wineries = {
-  id: number;
-  name: string;
-  details: string;
-};
-
-type Vineyard = {
-  id: number;
-  location: string;
-  details: string;
+type WineMoreDetails = {
+  description: string;
+  tags: string[];
+  alcohol_content: number;
+  buying_price: number;
+  location_in_cellar: {
+    section: string;
+    position: string;
+  };
+  color: string;
 };
 
 type WineData = {
@@ -34,36 +33,63 @@ export const WineContext = createContext<WineData | null>(null);
 const fakeWineData: Wine[] = [
   {
     id: 1,
-    name: 'Wine test',
-    type: 'Tint',
-    year: 1967,
-    price: 120.0,
-    location: 'Sicilia, Italia',
-    vineyardId: 1,
-    wineryId: 2,
-    imgUrl: '/assets/wine.png',
+    name: 'Vinho',
+    year: 2017,
+    wineryOfOrigin: 'Bertoletti',
+    mainImage: 'https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg',
+    sellingPrice: 300.0,
+    quantity: 10,
+    moreDetails: {
+      description: 'bla bla bla',
+      tags: ['fruity', 'sweet', 'citric'],
+      alcohol_content: 14.3,
+      buying_price: 180.0,
+      location_in_cellar: {
+        section: 'A',
+        position: '3',
+      },
+      color: 'rosé',
+    },
   },
   {
     id: 2,
-    name: 'Wine test',
-    type: 'Tint',
-    year: 1967,
-    price: 120.0,
-    location: 'Sicilia, Italia',
-    vineyardId: 1,
-    wineryId: 2,
-    imgUrl: '/assets/wine.png',
+    name: 'Vinho',
+    year: 2017,
+    wineryOfOrigin: 'Bertoletti',
+    mainImage: 'https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg',
+    sellingPrice: 300.0,
+    quantity: 10,
+    moreDetails: {
+      description: 'bla bla bla',
+      tags: ['fruity', 'sweet', 'citric'],
+      alcohol_content: 14.3,
+      buying_price: 180.0,
+      location_in_cellar: {
+        section: 'A',
+        position: '3',
+      },
+      color: 'rosé',
+    },
   },
   {
     id: 3,
-    name: 'Wine test',
-    type: 'Tint',
-    year: 1967,
-    price: 120.0,
-    location: 'Sicilia, Italia',
-    vineyardId: 1,
-    wineryId: 2,
-    imgUrl: '/assets/wine.png',
+    name: 'Vinho',
+    year: 2017,
+    wineryOfOrigin: 'Bertoletti',
+    mainImage: 'https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg',
+    sellingPrice: 300.0,
+    quantity: 10,
+    moreDetails: {
+      description: 'bla bla bla',
+      tags: ['fruity', 'sweet', 'citric'],
+      alcohol_content: 14.3,
+      buying_price: 180.0,
+      location_in_cellar: {
+        section: 'A',
+        position: '3',
+      },
+      color: 'rosé',
+    },
   },
 ];
 
