@@ -1,15 +1,15 @@
 import styled from 'styled-components';
+
+import { useWines } from '../../contexts/WineContext';
 import { Container as BaseContainer } from './Container';
 import { WineCard } from './WineCard';
 
-const fakeArr = Array.from(Array(20).keys());
-
 const WineList = () => {
+  const { wines } = useWines();
+
   return (
-    <Container bgColor="tranparent">
-      {fakeArr.map((i) => (
-        <WineCard key={i} />
-      ))}
+    <Container bgColor='transparent'>
+      {wines && wines.map(({ id, ...wineData }) => <WineCard key={id} id={id} {...wineData} />)}
     </Container>
   );
 };
