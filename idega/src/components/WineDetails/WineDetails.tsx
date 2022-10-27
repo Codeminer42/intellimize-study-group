@@ -7,20 +7,27 @@ type WineDetailsProps = {
   name: string;
   locationInCellar: string;
   winery: string;
-  sellingPrice: number;
-  buyingPrice: number;
+  sellingPrice: string;
+  buyingPrice: string;
   quantity: number;
+  description: string;
+  imgSrc: string;
 };
 
-//todo: add buttons
-const WineDetails = ({ name, locationInCellar, winery, sellingPrice, buyingPrice, quantity }: WineDetailsProps) => {
+const WineDetails = ({
+  name,
+  locationInCellar,
+  winery,
+  sellingPrice,
+  buyingPrice,
+  quantity,
+  description,
+  imgSrc,
+}: WineDetailsProps) => {
   return (
-    <DetailsContainer>
+    <DetailsContainer data-testid={`wine-details-${name}`} >
       <ImageContainer>
-        <WineImage
-          alt='wine-image'
-          src='https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg'
-        ></WineImage>
+        <WineImage alt={name} src={imgSrc} />
       </ImageContainer>
 
       <Name>{name}</Name>
@@ -35,22 +42,12 @@ const WineDetails = ({ name, locationInCellar, winery, sellingPrice, buyingPrice
         </Locations>
       </LocationsWrapper>
 
-      <TastingNotes />
+      <TastingNotes description={description} />
 
       <Wrapper>
         <Prices>
-          <SellingPrice>
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-            }).format(sellingPrice)}
-          </SellingPrice>
-          <BuyingPrice>
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-            }).format(buyingPrice)}
-          </BuyingPrice>
+          <SellingPrice>{sellingPrice}</SellingPrice>
+          <BuyingPrice>{buyingPrice}</BuyingPrice>
         </Prices>
         <Quantity>{quantity} un</Quantity>
       </Wrapper>

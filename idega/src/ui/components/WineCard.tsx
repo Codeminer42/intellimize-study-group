@@ -2,17 +2,39 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import WineDetails from '../../components/WineDetails/WineDetails';
 import { useModal } from '../../hooks/useModal';
+import formatNumberToCurrency from '../../utils/formatNumberToCurrency';
 
-const WineCard = () => {
+const WineMock = {
+  name: 'Saxum Gratias',
+  year: '2017',
+  locationInCellar: 'Location in Cellar',
+  winery: 'Paso Robles, CA',
+  sellingPrice: 300,
+  buyingPrice: 180,
+  quantity: 5,
+  cardImgSrc: '/assets/wine.png',
+  imgSrc: 'https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg',
+  description: 'Tasting notes - insert here short text about wines. 2 lines of text max.',
+};
+
+//todo: add type to wine
+const WineCard = ({ wine = WineMock }) => {
+  const { name, year, locationInCellar, winery, sellingPrice, buyingPrice, quantity, cardImgSrc, imgSrc, description } =
+    wine;
+  const sellingPriceFormated = formatNumberToCurrency(sellingPrice);
+  const buyingPriceFormated = formatNumberToCurrency(buyingPrice);
+
   const openModal = useModal({
     content: (
       <WineDetails
-        name={'2017 Saxum Gratias'}
-        locationInCellar={'Location in Cellar'}
-        winery={'Paso Robles, CA'}
-        sellingPrice={300}
-        buyingPrice={180}
-        quantity={5}
+        name={name}
+        locationInCellar={locationInCellar}
+        winery={winery}
+        sellingPrice={sellingPriceFormated}
+        buyingPrice={buyingPriceFormated}
+        quantity={quantity}
+        description={description}
+        imgSrc={imgSrc}
       />
     ),
   });
@@ -20,15 +42,15 @@ const WineCard = () => {
   return (
     <Container onClick={openModal}>
       <ImageContainer>
-        <Image src='/assets/wine.png' alt='2017 Saxum Gratias' layout='fill' />
+        <Image src={cardImgSrc} alt={name} layout='fill' />
       </ImageContainer>
       <DescriptionContainer>
         <Heading>
-          <span>2017</span>
-          <span>Saxum Gratias</span>
-          <Vineyard>Paso Robles, CA</Vineyard>
+          <span>{year}</span>
+          <span>{name}</span>
+          <Vineyard>{winery}</Vineyard>
         </Heading>
-        <span>R$ 300,00</span>
+        <span>{sellingPriceFormated}</span>
       </DescriptionContainer>
     </Container>
   );

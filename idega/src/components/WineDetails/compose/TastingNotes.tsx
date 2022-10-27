@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 // todo: add ratings component
-const TastingNotes = () => {
+const TastingNotes = ({ description }: { description: string }) => {
+  console.log(description);
   return (
     <Container>
       <Icon src='/assets/wineIcon.svg' alt='Wine Icon'></Icon>
-      <Text>Tasting notes - insert here short text about wines. 2 lines of text max. </Text>
+      <Description>{"description"}</Description>
     </Container>
   );
 };
@@ -36,9 +37,8 @@ const Icon = styled.img`
   border-radius: 50%;
 `;
 
-const Text = styled.p`
+const Description = styled.p`
   padding-right: 20px;
-
   font-family: 'Montserrat';
   font-weight: 300;
   font-size: 18px;
