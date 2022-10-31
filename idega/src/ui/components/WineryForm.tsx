@@ -4,7 +4,7 @@ import { Header } from './Header';
 import { useAddWineryForm } from '../hooks/useAddWineryForm';
 
 const WineryForm = () => {
-  const { winery, handleSubmit, handleChange } = useAddWineryForm();
+  const { winery, isInvalid, errors, handleSubmit, handleChange, handleBlur } = useAddWineryForm();
 
   return (
     <>
@@ -21,16 +21,23 @@ const WineryForm = () => {
             placeholder='your winery name'
             value={winery.name}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
 
-          <label htmlFor='wineryLocation'>Winery Name</label>
+          {isInvalid.name && <ErrorField className='form-error field-error--name'>{errors.name}</ErrorField>}
+
+          <label htmlFor='wineryLocation'>Winery Location</label>
           <input
             id='wineryLocation'
             name='location'
             placeholder='winery location'
             value={winery.location}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
+          {isInvalid.location && (
+            <ErrorField className='form-error field-error--location'>{errors.location}</ErrorField>
+          )}
 
           <button type='submit'>Submit</button>
         </Form>
@@ -51,4 +58,7 @@ const Form = styled.form`
   flex-direction: column;
 `;
 
+const ErrorField = styled.span`
+  color: #853434;
+`;
 export { WineryForm };
