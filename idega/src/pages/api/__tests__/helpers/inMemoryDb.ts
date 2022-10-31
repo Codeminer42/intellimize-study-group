@@ -1,4 +1,4 @@
-const inMenoryDb =
+const inMemoryDb =
 {
   wines: [{
     id: 1,
@@ -27,4 +27,4 @@ const inMenoryDb =
 }
 
 
-export default inMenoryDb;
+export default inMemoryDb;
