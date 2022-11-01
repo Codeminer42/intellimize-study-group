@@ -1,19 +1,28 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-const WineCard = () => {
+type WineCardProps = {
+  id: number;
+  name: string;
+  year: number;
+  wineryOfOrigin: string;
+  mainImage: string;
+  sellingPrice: number;
+};
+
+const WineCard = ({ mainImage, name, sellingPrice, wineryOfOrigin, year }: WineCardProps) => {
   return (
     <Container>
       <ImageContainer>
-        <Image src="/assets/wine.png" alt="2017 Saxum Gratias" layout="fill" />
+        <Image src={mainImage} alt={`${year} ${name}`} layout='fill' />
       </ImageContainer>
       <DescriptionContainer>
         <Heading>
-          <span>2017</span>
-          <span>Saxum Gratias</span>
-          <Vineyard>Paso Robles, CA</Vineyard>
+          <span>{year}</span>
+          <span>{name}</span>
+          <Vineyard>{wineryOfOrigin}</Vineyard>
         </Heading>
-        <span>R$ 999,00</span>
+        <span>{sellingPrice}</span>
       </DescriptionContainer>
     </Container>
   );
