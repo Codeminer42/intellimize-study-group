@@ -1,5 +1,4 @@
-const inMemoryDb =
-{
+const inMemoryDb = () => ({
   wines: [{
     id: 1,
     name: "Vinho",
@@ -24,7 +23,7 @@ const inMemoryDb =
       color: "rosé"
     }
   }]
-}
+})
 
 
 export default inMemoryDb;

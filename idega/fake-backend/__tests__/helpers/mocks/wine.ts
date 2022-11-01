@@ -1,4 +1,4 @@
-export const wine = {
+export const wine = () => ({
   name: "Vinho",
   year: 2017,
   wineryOfOrigin: "Bertoletti",
@@ -20,4 +20,4 @@ export const wine = {
     },
     color: "rosé"
   }
-} 
+}) 

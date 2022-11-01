@@ -6,7 +6,7 @@ import inMemoryDb from './inMemoryDb';
 const _dirname = dirname(fileURLToPath(import.meta.url));
 const file = join(_dirname, 'db.json');
 
-let data = process.env.NODE_ENV !== 'test' ? JSON.parse(fs.readFileSync(file, { encoding: 'utf8' })) : inMemoryDb;
+let data = process.env.NODE_ENV !== 'test' ? JSON.parse(fs.readFileSync(file, { encoding: 'utf8' })) : inMemoryDb();
 
 export type Wine = {
   id: number;

@@ -1,5 +1,5 @@
-import { get, getById, add, Wine } from '../queries';
 import { wine } from './helpers/mocks/wine';
+import { get, getById, add, Wine } from '../queries';
 
 describe('get', () => {
   it('returns a colection of wines', async () => {
@@ -25,7 +25,7 @@ describe('getById', () => {
 describe('add', () => {
   it('returns a colection of wines', async () => {
     const winesList = await get();
-    const newWine = await add(wine);
+    const newWine = await add(wine());
 
     expect(newWine.id).toBe(2);
     expect(winesList.length).toBe(2);

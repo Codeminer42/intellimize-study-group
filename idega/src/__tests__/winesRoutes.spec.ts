@@ -1,7 +1,7 @@
-import handler from '../wines';
-import handlerById from '../wines/[id]';
+import handler from '../pages/api/wines';
+import handlerById from '../pages/api/wines/[id]';
 
-import { Wine } from '../../../../fake-backend/queries';
+import { Wine } from '../../fake-backend/queries';
 
 import { testHandler } from './helpers/testHandler';
 
