@@ -24,4 +24,4 @@ const Container = styled.button`
   }
 `;
 
-export default CloseButton;
+export { CloseButton };

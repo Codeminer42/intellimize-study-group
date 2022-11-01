@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import CloseButton from './compose/CloseButton';
+import { CloseButton } from './compose/CloseButton';
 
 type ModalProps = {
   children: ReactNode;
@@ -22,8 +22,8 @@ const Modal = ({ children, isOpen, onClose }: ModalProps) => {
   };
 
   return (
-    <Overlay onClick={onClose}>
-      <Content onClick={handleModalCLick}>
+    <Overlay onClick={onClose} data-testid='modal-overlay-id'>
+      <Content onClick={handleModalCLick} data-testid='modal-content-id'>
         <CloseButton closeModal={onClose} />
         {children}
       </Content>
@@ -54,4 +54,4 @@ const Content = styled.div`
   z-index: 1;
 `;
 
-export default Modal;
+export { Modal };

@@ -1,5 +1,5 @@
 import React, { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
-import { Modal } from '../../components';
+import { Modal } from '../../ui/components';
 
 type ModalProviderProps = {
   children: ReactNode;
