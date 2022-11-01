@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import inMemoryDb from './__tests__/helpers/inMemoryDb';
+import inMemoryDb from './inMemoryDb';
 
 const _dirname = dirname(fileURLToPath(import.meta.url));
 const file = join(_dirname, 'db.json');
