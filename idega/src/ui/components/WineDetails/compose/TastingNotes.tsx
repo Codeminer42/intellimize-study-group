@@ -3,11 +3,10 @@ import styled from 'styled-components';
 
 // todo: add ratings component
 const TastingNotes = ({ description }: { description: string }) => {
-  console.log(description);
   return (
     <Container>
       <Icon src='/assets/wineIcon.svg' alt='Wine Icon'></Icon>
-      <Description>{"description"}</Description>
+      <Description>{description}</Description>
     </Container>
   );
 };

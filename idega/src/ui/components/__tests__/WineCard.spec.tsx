@@ -1,5 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import { WineCard } from '../WineCard';
+import { useModal } from '../../../hooks/useModal';
+
+jest.mock('../../../hooks/useModal');
 
 describe('<WineCard/>', () => {
   let WineMock = {
@@ -16,24 +19,14 @@ describe('<WineCard/>', () => {
   };
 
   describe('When clicked', () => {
-    //todo: reset mocks after/before each
-    // it.skip('calls openModal', () => {
-    //   const openModal = jest.fn();
-    //   // jest.spyOn(openModal)
-    //   jest.mock('../../hooks/useModal', openModal);
+    afterEach(cleanup);
+    it('calls openModal', () => {
+      const openModal = jest.fn();
+      (useModal as any).mockImplementation(() => openModal);
 
-    //   render(<WineCard wine={WineMock} />);
-
-    //   fireEvent.click(screen.getByRole('article'));
-    //   expect(openModal).toHaveBeenCalled();
-    // });
-
-    it('renders Wine Details component', async () => {
       render(<WineCard wine={WineMock} />);
-
       fireEvent.click(screen.getByRole('article'));
-      const WineDetails = await screen.findByTestId(`wine-details-${WineMock.name}`)
-      expect(WineDetails).toBeVisible();
+      expect(openModal).toHaveBeenCalled();
     });
   });
 });

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import WineDetails from '../../components/WineDetails/WineDetails';
+import WineDetails from './WineDetails/WineDetails';
 import { useModal } from '../../hooks/useModal';
 import formatNumberToCurrency from '../../utils/formatNumberToCurrency';
 
@@ -23,7 +23,8 @@ const WineCard = ({ wine = WineMock }) => {
     wine;
   const sellingPriceFormated = formatNumberToCurrency(sellingPrice);
   const buyingPriceFormated = formatNumberToCurrency(buyingPrice);
-
+  //todo: test if values are formatted
+  
   const openModal = useModal({
     content: (
       <WineDetails
