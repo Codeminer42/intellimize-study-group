@@ -1,8 +1,9 @@
-import handler from '../../src/pages/api/wines';
-import handlerById from '../../src/pages/api/wines/[id]';
+import handler from '../wines';
+import handlerById from '../wines/[id]';
+
+import { Wine } from '../../../../fake-backend/queries';
 
 import { testHandler } from './helpers/testHandler';
-import { Wine } from '../queries';
 
 describe('[GET] /api/wines/', () => {
   it('returns a collection of wines', async () => {
