@@ -7,6 +7,7 @@ import { GlobalStyles } from '../ui/styles/global';
 import { ThemeProvider } from 'styled-components';
 import { WineDataProvider } from '../contexts/WineContext';
 import ModalProvider from '../contexts/ModalProvider';
+import { ContainerProvider } from '../contexts/ContainerContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -16,12 +17,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <ThemeProvider theme={theme}>
-        <WineDataProvider>
-          <ModalProvider>
-            <GlobalStyles />
-            <Component {...pageProps} />
-          </ModalProvider>
-        </WineDataProvider>
+        <ContainerProvider>
+          <WineDataProvider>
+            <ModalProvider>
+              <GlobalStyles />
+              <Component {...pageProps} />
+            </ModalProvider>
+          </WineDataProvider>
+        </ContainerProvider>
       </ThemeProvider>
     </>
   );

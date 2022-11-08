@@ -1,11 +1,25 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useContainer } from '../../contexts/ContainerContext';
+import { Wine } from '../../domain/Wine';
 
-import { useWines } from '../../contexts/WineContext';
 import { Container as BaseContainer } from './Container';
 import { WineCard } from './WineCard';
 
 const WineList = () => {
-  const { wines } = useWines();
+  const [wines, setWines] = useState<Wine[] | []>([]);
+
+  const { getWines } = useContainer();
+
+  useEffect(() => {
+    const getAllWines = async () => {
+      const wine = await getWines();
+
+      setWines(wine);
+    };
+
+    getAllWines();
+  }, [getWines]);
 
   return (
     <Container bgColor='transparent'>
