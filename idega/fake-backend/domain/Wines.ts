@@ -1,5 +1,3 @@
-import { wineRepository } from '../infra/WineRepository';
-
 export namespace Wine {
   export type Type = {
     id: number;
@@ -22,18 +20,25 @@ export namespace Wine {
     };
   };
 
-  export const create = (wine: Type): Type => {
-    if (isValidWine(wine)) {
+  export const create = (props: Type): Type => {
+    if (!isValidWine(props)) {
       throw new Error('Missing some required fields');
     }
-    return wine;
+    return {
+      id: props.id,
+      name: props.name,
+      year: props.year,
+      wineryOfOrigin: props.wineryOfOrigin,
+      mainImage: props.mainImage,
+      sellingPrice: props.sellingPrice,
+      quantity: props.quantity,
+      moreDetails: props.moreDetails,
+    };
   };
 
   export function isValidWine(wine: any): boolean {
     const validWineProps = ['name', 'year', 'wineryOfOrigin', 'mainImage', 'sellingPrice', 'quantity', 'moreDetails'];
 
-    const isMissingKeys = validWineProps.some((key) => wine.hasOwnProperty(key) === false);
-
-    return isMissingKeys;
+    return validWineProps.every((key) => wine.hasOwnProperty(key) === true);
   }
 }

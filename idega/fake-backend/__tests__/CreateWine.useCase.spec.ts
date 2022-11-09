@@ -4,6 +4,13 @@ import { makeCreateWine } from '../application/useCases/CreateWine';
 
 import { wine } from './helpers/mocks/wine';
 
+const fakeWineRepository: WineRepository = {
+  getNextId: () => 2,
+  getAll: null as any,
+  getById: null as any,
+  save: jest.fn()
+};
+
 describe('Use Cases: CreateWine', () => {
   const fakeWineRepository: WineRepository = {
     getNextId: () => 2,
@@ -22,22 +29,15 @@ describe('Use Cases: CreateWine', () => {
 });
 
 describe('Use Cases: CreateWine', () => {
-  const fakeWineRepository: WineRepository = {
-    getNextId: () => 2,
-    getAll: null as any,
-    getById: null as any,
-    save: jest.fn()
-  };
-
   const createWine = makeCreateWine({ wineRepository: fakeWineRepository });
 
-  it('returns a new wine', async () => {
+  it('returns a error message when receive a invalid wine', async () => {
     const { name, ...rest } = wine();
     const errorMessage = new Error('Missing some required fields')
 
     const create = () => createWine(rest as Wine.Type);
 
     await expect(create()).rejects.toEqual(errorMessage);
-
   });
 });
+
