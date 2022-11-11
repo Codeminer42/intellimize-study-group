@@ -1,27 +1,6 @@
-import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
-
-export type Wine = {
-  id: number;
-  name: string;
-  year: number;
-  wineryOfOrigin: string;
-  mainImage: string;
-  sellingPrice: number;
-  quantity: number;
-  moreDetails: WineMoreDetails;
-};
-
-type WineMoreDetails = {
-  description: string;
-  tags: string[];
-  alcohol_content: number;
-  buying_price: number;
-  location_in_cellar: {
-    section: string;
-    position: string;
-  };
-  color: string;
-};
+import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { Wine } from '../domain/Wine';
+import { useContainer } from './ContainerContext';
 
 type WineData = {
   wines: Wine[] | undefined;
@@ -30,71 +9,20 @@ type WineData = {
 
 export const WineContext = createContext<WineData | null>(null);
 
-const fakeWineData: Wine[] = [
-  {
-    id: 1,
-    name: 'Vinho',
-    year: 2017,
-    wineryOfOrigin: 'Bertoletti',
-    mainImage: 'https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg',
-    sellingPrice: 300.0,
-    quantity: 10,
-    moreDetails: {
-      description: 'bla bla bla',
-      tags: ['fruity', 'sweet', 'citric'],
-      alcohol_content: 14.3,
-      buying_price: 180.0,
-      location_in_cellar: {
-        section: 'A',
-        position: '3',
-      },
-      color: 'rosé',
-    },
-  },
-  {
-    id: 2,
-    name: 'Vinho',
-    year: 2017,
-    wineryOfOrigin: 'Bertoletti',
-    mainImage: 'https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg',
-    sellingPrice: 300.0,
-    quantity: 10,
-    moreDetails: {
-      description: 'bla bla bla',
-      tags: ['fruity', 'sweet', 'citric'],
-      alcohol_content: 14.3,
-      buying_price: 180.0,
-      location_in_cellar: {
-        section: 'A',
-        position: '3',
-      },
-      color: 'rosé',
-    },
-  },
-  {
-    id: 3,
-    name: 'Vinho',
-    year: 2017,
-    wineryOfOrigin: 'Bertoletti',
-    mainImage: 'https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg?format=jpg',
-    sellingPrice: 300.0,
-    quantity: 10,
-    moreDetails: {
-      description: 'bla bla bla',
-      tags: ['fruity', 'sweet', 'citric'],
-      alcohol_content: 14.3,
-      buying_price: 180.0,
-      location_in_cellar: {
-        section: 'A',
-        position: '3',
-      },
-      color: 'rosé',
-    },
-  },
-];
-
 export const WineDataProvider = ({ children }: { children: ReactNode }) => {
-  const [wines, setWines] = useState<Wine[] | []>(fakeWineData);
+  const [wines, setWines] = useState<Wine[] | []>([]);
+
+  const { getWines } = useContainer();
+
+  useEffect(() => {
+    const getAllWines = async () => {
+      const fetchedWines = await getWines();
+
+      setWines(fetchedWines);
+    };
+
+    getAllWines();
+  }, [getWines]);
 
   const addWine = useCallback(
     (newWine: Wine) => {

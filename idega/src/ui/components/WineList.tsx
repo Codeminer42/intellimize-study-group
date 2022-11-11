@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { useWines } from '../../contexts/WineContext';
 import { Container as BaseContainer } from './Container';
+import { useWines } from '../../contexts/WineContext';
 import { WineCard } from './WineCard';
 
 const WineList = () => {
