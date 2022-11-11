@@ -41,22 +41,21 @@ describe('[GET] /api/wines/[id]', () => {
     expect(res.statusCode).toBe(200);
     expect(res._getJSONData()).toEqual(
       expect.objectContaining({
-        data: expect.arrayContaining([expect.objectContaining(wineObjectShape)]),
+        data: expect.objectContaining(wineObjectShape),
       })
     );
-    expect(res._getJSONData().data.length).toBe(1);
+    expect(res._getJSONData().data.id).toBe(1);
   });
 
   it('returns a empty array with non existing wine id', async () => {
     const res = await testHandler(handlerById, { method: 'GET', query: { id: 2 } });
 
-    expect(res.statusCode).toBe(200);
+    expect(res.statusCode).toBe(404);
     expect(res._getJSONData()).toEqual(
       expect.objectContaining({
-        data: [],
+        error: "Can't find a wine with this id",
       })
     );
-    expect(res._getJSONData().data).toHaveLength(0);
   });
 
   it('returns a 400 status when get a non valid id', async () => {

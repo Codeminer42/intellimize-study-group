@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { getWineById } from '../../../../fake-backend/container';
 import { Wine } from '../../../../fake-backend/domain/Wines';
 
-type ApiResponse = { data: Wine.Type[] } | { error: string };
+type ApiResponse = { data: Wine.Type | {} } | { error: string };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ApiResponse>) {
   const { id } = req.query;
@@ -10,10 +10,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   try {
     const wine = await getWineById(Number(id));
     if (wine) {
-      return res.status(200).json({ data: [wine] });
+      return res.status(200).json({ data: wine });
     }
 
-    return res.status(200).json({ data: [] });
+    return res.status(404).json({ error: "Can't find a wine with this id" });
   } catch (e: any) {
     return res.status(400).json({ error: `${e.message}` });
   }
