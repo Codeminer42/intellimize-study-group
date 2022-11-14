@@ -3,40 +3,51 @@ import { Wine } from '../domain/Wine';
 import { useContainer } from './ContainerContext';
 
 type WineData = {
-  wines: Wine[] | undefined;
-  addWine: (newWine: Wine) => void;
+  wines: Wine.Type[] | undefined;
+  addWine: (newWine: Omit<Wine.Type, 'id'>) => void;
 };
 
 export const WineContext = createContext<WineData | null>(null);
 
 export const WineDataProvider = ({ children }: { children: ReactNode }) => {
-  const [wines, setWines] = useState<Wine[] | []>([]);
+  const [wines, setWines] = useState<Wine.Type[]>([]);
+  const [selectedWine, setSelectedWine] = useState<Wine.Type | undefined>();
 
-  const { getWines } = useContainer();
+  const { getWines, createWine, getWineById } = useContainer();
 
-  useEffect(() => {
-    const getAllWines = async () => {
-      const fetchedWines = await getWines();
+  const getById = useCallback(
+    async (id: number) => {
+      const wine = await getWineById(id);
+      setSelectedWine(wine);
+    },
+    [getWineById]
+  );
 
-      setWines(fetchedWines);
-    };
-
-    getAllWines();
+  const getAllWines = useCallback(async () => {
+    const fetchedWines = await getWines();
+    setWines(fetchedWines);
   }, [getWines]);
 
   const addWine = useCallback(
-    (newWine: Wine) => {
+    async (newWineData: Omit<Wine.Type, 'id'>) => {
+      const newWine = await createWine(newWineData);
       setWines((oldWinesList) => [...oldWinesList, newWine]);
     },
-    [setWines]
+    [setWines, createWine]
   );
+
+  useEffect(() => {
+    getAllWines();
+  }, [getAllWines]);
 
   const value = useMemo(
     () => ({
       wines,
+      selectedWine,
       addWine,
+      getById,
     }),
-    [wines, addWine]
+    [wines, addWine, getById, selectedWine]
   );
 
   return <WineContext.Provider value={value}>{children}</WineContext.Provider>;

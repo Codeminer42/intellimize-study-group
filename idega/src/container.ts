@@ -1,10 +1,12 @@
 import wineApiClient from './infra/api/wineApiClient';
-import { makeGetWineById } from './infra/wine/makeGetWineById';
-import { makeGetWines } from './infra/wine/makeGetWines';
+import { makeCreateWine } from './apps/useCases/CreateWine';
+import { makeGetWineById } from './apps/useCases/GetWineById';
+import { makeGetWines } from './apps/useCases/GetWines';
 
 const container = {
   getWines: makeGetWines({ wineApiClient }),
   getWineById: makeGetWineById({ wineApiClient }),
+  createWine: makeCreateWine({ wineApiClient }),
 };
 
 export { container };
