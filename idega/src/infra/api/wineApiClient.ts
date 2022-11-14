@@ -19,9 +19,9 @@ const wineApiClient = {
       throw new Error(errorMessage);
     }
   },
-  post: async <T>(
+  post: async <T = any>(
     url: RequestInfo | URL,
-    body: BodyInit,
+    body: {} | undefined,
     customConfig?: RequestInit | undefined
   ): Promise<Response & { data: T }> => {
     const config = {

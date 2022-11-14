@@ -4,15 +4,15 @@ import { useContainer } from './ContainerContext';
 
 type WineData = {
   wines: Wine[] | undefined;
-  addWine: (newWine: Wine) => void;
+  addWine: (newWine: Omit<Wine, 'id'>) => void;
 };
 
 export const WineContext = createContext<WineData | null>(null);
 
 export const WineDataProvider = ({ children }: { children: ReactNode }) => {
-  const [wines, setWines] = useState<Wine[] | []>([]);
+  const [wines, setWines] = useState<Wine[]>([]);
 
-  const { getWines } = useContainer();
+  const { getWines, createWine } = useContainer();
 
   useEffect(() => {
     const getAllWines = async () => {
@@ -25,10 +25,11 @@ export const WineDataProvider = ({ children }: { children: ReactNode }) => {
   }, [getWines]);
 
   const addWine = useCallback(
-    (newWine: Wine) => {
+    async (newWineData: Omit<Wine, 'id'>) => {
+      const newWine = await createWine(newWineData);
       setWines((oldWinesList) => [...oldWinesList, newWine]);
     },
-    [setWines]
+    [setWines, createWine]
   );
 
   const value = useMemo(
