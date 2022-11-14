@@ -1,33 +1,25 @@
 import styled from 'styled-components';
 
-import { Button, ButtonVariants } from '../../Button';
-
-type ActionButtonsProps = ButtonVariants & {
-  text: string;
-  action: () => void;
-};
+import { Button } from '../../Button';
 
 const ActionButtons = () => {
-  const navActionButtons: ActionButtonsProps[] = [
+  const navActionButtons = [
     {
       text: 'Add Wine',
-      variant: 'wine',
       action: () => {},
     },
     {
       text: 'Add Winery',
-      variant: 'green',
       action: () => {},
     },
     {
       text: 'Add Vineyard',
-      variant: 'purple',
       action: () => {},
     },
   ];
 
-  const renderActionButtons = navActionButtons.map(({ text, variant, action }) => (
-    <Button key={text} variant={variant} onClick={action}>
+  const renderActionButtons = navActionButtons.map(({ text, action }) => (
+    <Button key={text} variant='primary' onClick={action}>
       {text}
     </Button>
   ));

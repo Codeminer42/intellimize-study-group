@@ -1,21 +1,23 @@
-import styled from 'styled-components';
+import { Box } from 'theme-ui';
 import { ActionButtons } from './compose/ActionButtons';
 import { SearchBar } from './compose/SearchBar';
 
 const ActionsMenu = () => {
   return (
-    <Container>
+    <Box sx={sx.container}>
       <ActionButtons />
       <SearchBar />
-    </Container>
+    </Box>
   );
 };
 
-const Container = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 52px 57px;
-`;
+const sx = {
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '52px 57px',
+  },
+};
 
 export { ActionsMenu };

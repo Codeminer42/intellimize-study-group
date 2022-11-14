@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import styled from 'styled-components';
+import NextLink from 'next/link';
+import { Box, Link } from 'theme-ui';
 
 const navItems = [
   {
@@ -18,34 +18,34 @@ const navItems = [
 
 const NavLinks = () => {
   return (
-    <Container>
+    <Box sx={sx.container}>
       {navItems.map(({ href, text }) => (
-        <Link key={text} href={href} passHref>
-          <NavItem>{text}</NavItem>
-        </Link>
+        <NextLink key={text} href={href} passHref>
+          <Link sx={sx.navLink}>{text}</Link>
+        </NextLink>
       ))}
-    </Container>
+    </Box>
   );
 };
 
-const Container = styled.nav`
-  display: flex;
-  gap: 40px;
-  margin-left: 152px;
-`;
-
-const NavItem = styled.a`
-  padding: 8px 16px;
-  font-family: sans-serif;
-  font-weight: 400;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color ease-in 100ms;
-  border-radius: 12px;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-`;
+const sx = {
+  container: {
+    display: 'flex',
+    gap: '40px',
+    marginLeft: '152px',
+  },
+  navLink: {
+    padding: '8px 16px',
+    fontFamily: 'sans-serif',
+    fontWeight: '400',
+    color: 'white',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    borderRadius: '12px',
+    ':hover': {
+      backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    },
+  },
+};
 
 export { NavLinks };

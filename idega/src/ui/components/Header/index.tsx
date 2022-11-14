@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import styled from 'styled-components';
 
 import { Container } from '../Container';
 import { NavLinks } from './compose/NavLinks';

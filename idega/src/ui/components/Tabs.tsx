@@ -1,44 +1,56 @@
-import styled from 'styled-components';
+import { Box, ThemeUICSSObject } from 'theme-ui';
+
+type StyleOject = {
+  [key: string]: ThemeUICSSObject;
+};
+
+type TabsProps = {
+  active: boolean;
+};
 
 const Tabs = () => {
   return (
-    <Container>
-      <Tab active={true}>All</Tab>
-      <Tab active={false}>In Cellar</Tab>
-    </Container>
+    <Box sx={sx.container}>
+      <Tab active />
+      <Tab active={false} />
+    </Box>
   );
 };
 
-const Container = styled.div`
-  display: flex;
+const Tab = ({ active }: TabsProps) => (
+  <Box
+    sx={{
+      ...sx.tabs,
+      backgroundColor: active ? 'black' : 'white',
+      color: active ? 'white' : 'black',
+    }}
+  >
+    All
+  </Box>
+);
 
-  padding: 0 52px;
-
-  width: 100%;
-
-  border-bottom: 2px solid #363636;
-`;
-
-const Tab = styled.div<{ active: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: ${({ active }) => (active ? '#363636' : '#FAF9F9')};
-  border-radius: 20px 20px 0px 0px;
-  color: ${({ active }) => (active ? '#FFFFFF' : '#000000')};
-
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-
-  padding: 14px 46px;
-  cursor: pointer;
-
-  & + & {
-    margin-left: 12px;
-  }
-`;
+const sx: StyleOject = {
+  container: {
+    display: 'flex',
+    padding: '0 52px',
+    width: '100%',
+    borderBottom: (t) => `2px solid ${t.colors!.black}`,
+  },
+  tabs: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: '20px 20px 0px 0px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '24px',
+    lineHeight: '28px',
+    padding: '14px 46px',
+    cursor: 'pointer',
+    '& + &': {
+      marginLeft: '12px',
+    },
+  },
+};
 
 export { Tabs };

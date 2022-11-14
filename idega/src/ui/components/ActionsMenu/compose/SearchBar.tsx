@@ -1,55 +1,61 @@
-import styled from 'styled-components';
+import { Box, Label, Input, ThemeUICSSObject } from 'theme-ui';
 import { FiSearch, FiSettings } from 'react-icons/fi';
+
+type StyleOject = {
+  [key: string]: ThemeUICSSObject;
+};
 
 const SearchBar = () => {
   return (
-    <Container>
-      <label>
-        <Search placeholder='Search' />
-        <FiSearch id='search-icon' aria-label='search' />
-      </label>
-      <FiSettings id='settings-icon' aria-label='settings' />
-    </Container>
+    <Box sx={sx.container}>
+      <Label sx={sx.label}>
+        <Input sx={sx.search} placeholder='Search' />
+        <Box sx={sx.searchIcon}>
+          <FiSearch id='search-icon' aria-label='search' />
+        </Box>
+      </Label>
+      <Box sx={sx.settingsIcon}>
+        <FiSettings id='settings-icon' aria-label='settings' />
+      </Box>
+    </Box>
   );
 };
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+const sx: StyleOject = {
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  label: {
+    position: 'relative',
+  },
+  searchIcon: {
+    position: 'absolute',
+    right: '5px',
+    top: '3px',
+    transform: 'translate(-50%, 50%)',
+  },
+  settingsIcon: {
+    marginLeft: '26px',
+    cursor: 'pointer',
+  },
 
-  #search-icon {
-    position: absolute;
-    right: 5px;
-    top: 3px;
-    transform: translate(-50%, 50%);
-  }
-
-  #settings-icon {
-    margin-left: 26px;
-    cursor: pointer;
-  }
-
-  label {
-    position: relative;
-  }
-`;
-
-const Search = styled.input`
-  border: 0;
-  border-radius: 20px;
-  background-color: #ededed;
-  width: 246px;
-  height: 39px;
-  padding-left: 1rem;
-  font-size: 16px;
-
-  &::placeholder {
-    margin-left: 1rem;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #ccc;
-  }
-`;
+  search: {
+    border: '0',
+    borderRadius: '20px',
+    backgroundColor: '#ededed',
+    width: '246px',
+    height: '39px',
+    paddingLeft: '1rem',
+    fontSize: '16px',
+    '::placeholder': {
+      marginLeft: '1rem',
+      fontSize: '16px',
+      lineHeight: '1.5',
+      color: '#ccc',
+    },
+  },
+};
 
 export { SearchBar };
