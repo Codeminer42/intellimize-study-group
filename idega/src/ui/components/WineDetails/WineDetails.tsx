@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import LocationIcon from './compose/LocationIcon';
+
+import Prices from './compose/Prices';
+import AmountInStorage from './compose/AmountInStorage';
 import TastingNotes from './compose/TastingNotes';
+import WineImage from './compose/WineImage';
+import WineLocations from './compose/WineLocations';
 
 type WineDetailsProps = {
   name: string;
@@ -25,31 +29,17 @@ const WineDetails = ({
   imgSrc,
 }: WineDetailsProps) => {
   return (
-    <DetailsContainer data-testid={`wine-details-${name}`} >
-      <ImageContainer>
-        <WineImage alt={name} src={imgSrc} />
-      </ImageContainer>
+    <DetailsContainer data-testid={`wine-details-${name}`}>
+      <WineImage alt={name} src={imgSrc} />
 
       <Name>{name}</Name>
-      <LocationsWrapper>
-        <Locations>
-          <LocationIcon />
-          {locationInCellar}
-        </Locations>
-        <Locations>
-          <LocationIcon />
-          {winery}
-        </Locations>
-      </LocationsWrapper>
+      <WineLocations locationInCellar={locationInCellar} winery={winery} />
 
       <TastingNotes description={description} />
 
       <Wrapper>
-        <Prices>
-          <SellingPrice>{sellingPrice}</SellingPrice>
-          <BuyingPrice>{buyingPrice}</BuyingPrice>
-        </Prices>
-        <Quantity>{quantity} un</Quantity>
+        <Prices sellingPrice={sellingPrice} buyingPrice={buyingPrice} />
+        <AmountInStorage quantity={quantity} />
       </Wrapper>
     </DetailsContainer>
   );
@@ -67,32 +57,6 @@ const Name = styled.h1`
   padding-top: 30px;
 `;
 
-const ImageContainer = styled.div`
-  width: 100%;
-`;
-
-const WineImage = styled.img`
-  max-height: 356px;
-  border-radius: 20px;
-`;
-
-const LocationsWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  width: 100%;
-  padding: 30px 60px;
-`;
-
-const Locations = styled.a`
-  display: flex;
-  align-items: center;
-
-  font-family: 'Montserrat';
-  font-weight: 300;
-  font-size: 18px;
-`;
-
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -100,34 +64,6 @@ const Wrapper = styled.div`
 
   width: 100%;
   padding: 30px;
-`;
-
-const Prices = styled.div`
-  display: flex;
-  align-items: flex-end;
-  gap: 20px;
-`;
-
-const SellingPrice = styled.h3`
-  font-family: 'Montserrat';
-  font-weight: 400;
-  font-size: 34px;
-  color: #1f1f1f;
-`;
-
-const BuyingPrice = styled.h4`
-  font-family: 'Montserrat';
-  font-weight: 300;
-  font-size: 20px;
-  color: #1f1f1f;
-`;
-
-const Quantity = styled.h3`
-  font-family: 'Montserrat';
-  font-weight: 400;
-  font-size: 34px;
-
-  color: #1f1f1f;
 `;
 
 export default WineDetails;

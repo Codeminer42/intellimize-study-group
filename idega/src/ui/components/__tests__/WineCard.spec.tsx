@@ -6,13 +6,13 @@ jest.mock('../../../hooks/useModal');
 
 describe('<WineCard/>', () => {
   let WineMock = {
-    name: 'afsdf',
-    year: '2ewrewr7',
-    locationInCellar: 'Lrewrewrwelar',
-    winery: 'Pasrewrewrew',
-    sellingPrice: 4300,
-    buyingPrice: 1240,
-    quantity: 43243,
+    name: 'Wine',
+    year: '1999',
+    locationInCellar: 'Somewhere',
+    winery: 'Winery',
+    sellingPrice: 200,
+    buyingPrice: 100,
+    quantity: 10,
     cardImgSrc: '/assets/wine.png',
     imgSrc: 'https://imageio.forbes.com/specials-images/imageserve//6276c7a49c222289a2752bc2/0x0.jpg',
     description: 'Tasting notes - insert here short text about wines. 2 lines of text max.',

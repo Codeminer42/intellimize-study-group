@@ -24,7 +24,7 @@ const WineCard = ({ wine = WineMock }) => {
   const sellingPriceFormated = formatNumberToCurrency(sellingPrice);
   const buyingPriceFormated = formatNumberToCurrency(buyingPrice);
   //todo: test if values are formatted
-  
+
   const openModal = useModal({
     content: (
       <WineDetails

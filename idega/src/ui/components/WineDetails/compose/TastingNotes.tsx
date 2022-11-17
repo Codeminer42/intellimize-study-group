@@ -1,7 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
 
-// todo: add ratings component
 const TastingNotes = ({ description }: { description: string }) => {
   return (
     <Container>
